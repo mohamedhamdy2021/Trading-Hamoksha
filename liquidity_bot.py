@@ -249,7 +249,9 @@ class SmartMoneyBot:
             if msg and "ignored" not in msg:
                 send_telegram_message(msg)
             elif signal == 0:
-                print(f"Price: {float(current_price):.5f} | Signal: {signal} | Sentiment: {news_sentiment}")
+                status_msg = f"🔍 *Market Check Complete*\nPrice: `{float(current_price):.5f}`\nSignal: `{signal}`\n(No entry opportunities right now)"
+                print(status_msg.replace('*', '').replace('`', ''))
+                send_telegram_message(status_msg)
             print("-" * 50)
             
         except Exception as e:
@@ -259,8 +261,10 @@ class SmartMoneyBot:
 
 if __name__ == "__main__":
     bot = SmartMoneyBot()
-    startup_msg = f"🤖 *Smart Money Bot Initialized!*\n🌐 *Symbol:* `{bot.symbol}`\n💰 *Starting Balance:* `{bot.balance}$`"
-    print(startup_msg)
-    # send_telegram_message(startup_msg) # Uncomment if you want an initiation message every 5 minutes (Not recommended for GitHub Actions)
+    startup_msg = f"🤖 *Smart Money Bot Initialized (Test Run)!*\n🌐 *Symbol:* `{bot.symbol}`\n💰 *Starting Balance:* `{bot.balance}$`"
+    print(startup_msg.replace('*', '').replace('`', ''))
+    
+    # رسالة تجريبية أول ما يفتح عشان نتأكد إن الربط شغال
+    send_telegram_message(startup_msg) 
     
     bot.run_one_iteration()
