@@ -1,6 +1,16 @@
 {
     "balance": 1000.0,
-    "position": null,
-    "entry_price": 0.0,
+    "positions": {
+        "EURUSD=X": null,
+        "GBPUSD=X": null,
+        "USDJPY=X": null,
+        "GC=F": null
+    },
+    "entry_prices": {
+        "EURUSD=X": 0.0,
+        "GBPUSD=X": 0.0,
+        "USDJPY=X": 0.0,
+        "GC=F": 0.0
+    },
     "history": []
 }
