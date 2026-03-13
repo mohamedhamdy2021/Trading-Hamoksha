@@ -1,0 +1,7 @@
+yfinance
+pandas
+feedparser
+requests
+transformers
+torch
+pytz
