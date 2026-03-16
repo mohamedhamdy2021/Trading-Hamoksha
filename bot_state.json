@@ -4,13 +4,13 @@
         "EURUSD=X": null,
         "GBPUSD=X": null,
         "USDJPY=X": null,
-        "GC=F": null
+        "GC=F": "BUY"
     },
     "entry_prices": {
         "EURUSD=X": 0.0,
         "GBPUSD=X": 0.0,
         "USDJPY=X": 0.0,
-        "GC=F": 0.0
+        "GC=F": 4987.2001953125
     },
     "history": []
 }
