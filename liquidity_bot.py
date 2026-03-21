@@ -7,6 +7,7 @@ from datetime import datetime
 import pytz
 import os
 import json
+import time
 
 # --- إعدادات تليجرام ---
 TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN', '')
@@ -33,29 +34,82 @@ try:
 except Exception as e:
     sentiment_analyzer = pipeline("sentiment-analysis")
 
-# ملف حفظ الذاكرة
 STATE_FILE = "bot_state.json"
 
+POSITION_SIZE = 100       # كل صفقة بتدخل بـ 100 دولار ثابتة
+BROKER_FEE = 0.001        # عمولة 0.1% لكل عملية (دخول أو خروج)
+
+# أسماء عرض مبسطة للأزواج (عشان الرسائل تبقى واضحة)
+DISPLAY_NAMES = {
+    "EURUSD=X": "EUR/USD",
+    "GBPUSD=X": "GBP/USD",
+    "USDJPY=X": "USD/JPY",
+    "USDCHF=X": "USD/CHF",
+    "AUDUSD=X": "AUD/USD",
+    "USDCAD=X": "USD/CAD",
+    "NZDUSD=X": "NZD/USD",
+    "GBPJPY=X": "GBP/JPY",
+    "EURJPY=X": "EUR/JPY",
+    "EURGBP=X": "EUR/GBP",
+    "AUDNZD=X": "AUD/NZD",
+    "EURCHF=X": "EUR/CHF",
+    "GBPCHF=X": "GBP/CHF",
+    "CADJPY=X": "CAD/JPY",
+    "GC=F":     "🥇 GOLD"
+}
+
 class SmartMoneyBotMulti:
-    def __init__(self, initial_balance=1000.0):
-        # قائمة الأزواج الرئيسية اللي هنراقبها
-        self.symbols = ["EURUSD=X", "GBPUSD=X", "USDJPY=X", "GC=F"] # ضفنا اليورو، الباوند، الين، والذهب
+    def __init__(self, initial_balance=1500.0):
+        # 15 زوج: 14 فوركس + الذهب
+        self.symbols = [
+            "EURUSD=X",  # EUR/USD
+            "GBPUSD=X",  # GBP/USD
+            "USDJPY=X",  # USD/JPY
+            "USDCHF=X",  # USD/CHF (الفرنك السويسري)
+            "AUDUSD=X",  # AUD/USD (الدولار الأسترالي)
+            "USDCAD=X",  # USD/CAD (الدولار الكندي)
+            "NZDUSD=X",  # NZD/USD (الدولار النيوزيلندي)
+            "GBPJPY=X",  # GBP/JPY (الباوند/ين - الزوج المجنون)
+            "EURJPY=X",  # EUR/JPY
+            "EURGBP=X",  # EUR/GBP
+            "AUDNZD=X",  # AUD/NZD
+            "EURCHF=X",  # EUR/CHF
+            "GBPCHF=X",  # GBP/CHF
+            "CADJPY=X",  # CAD/JPY
+            "GC=F"       # GOLD (الذهب)
+        ]
         
         # أسماء مبسطة للأخبار
         self.news_queries = {
             "EURUSD=X": "EUR USD Forex",
             "GBPUSD=X": "GBP USD Forex",
             "USDJPY=X": "USD JPY Forex",
-            "GC=F": "Gold XAU USD Market"
+            "USDCHF=X": "USD CHF Swiss Franc",
+            "AUDUSD=X": "AUD USD Australian Dollar",
+            "USDCAD=X": "USD CAD Canadian Dollar Oil",
+            "NZDUSD=X": "NZD USD New Zealand Dollar",
+            "GBPJPY=X": "GBP JPY Forex",
+            "EURJPY=X": "EUR JPY Forex",
+            "EURGBP=X": "EUR GBP Forex",
+            "AUDNZD=X": "AUD NZD Forex",
+            "EURCHF=X": "EUR CHF Forex",
+            "GBPCHF=X": "GBP CHF Forex",
+            "CADJPY=X": "CAD JPY Forex",
+            "GC=F":     "Gold XAU USD Market"
         }
         
         self.balance = initial_balance
-        # سجلات منفصلة لكل زوج
         self.positions = {sym: None for sym in self.symbols}
         self.entry_prices = {sym: 0.0 for sym in self.symbols}
         self.history = {sym: [] for sym in self.symbols}
+        self.shadow_trades = {sym: None for sym in self.symbols}
+        self.shadow_entry_prices = {sym: 0.0 for sym in self.symbols}
+        self.shadow_history = {sym: [] for sym in self.symbols}
         
         self.load_state()
+
+    def get_display_name(self, symbol):
+        return DISPLAY_NAMES.get(symbol, symbol)
 
     def load_state(self):
         if os.path.exists(STATE_FILE):
@@ -66,6 +120,9 @@ class SmartMoneyBotMulti:
                     self.positions = data.get("positions", self.positions)
                     self.entry_prices = data.get("entry_prices", self.entry_prices)
                     self.history = data.get("history", self.history)
+                    self.shadow_trades = data.get("shadow_trades", self.shadow_trades)
+                    self.shadow_entry_prices = data.get("shadow_entry_prices", self.shadow_entry_prices)
+                    self.shadow_history = data.get("shadow_history", self.shadow_history)
                 print(f"📂 State Loaded: Balance {self.balance:.2f}$")
             except Exception as e:
                 print(f"Error loading state: {e}")
@@ -75,13 +132,25 @@ class SmartMoneyBotMulti:
             "balance": self.balance,
             "positions": self.positions,
             "entry_prices": self.entry_prices,
-            "history": self.history
+            "history": self.history,
+            "shadow_trades": self.shadow_trades,
+            "shadow_entry_prices": self.shadow_entry_prices,
+            "shadow_history": self.shadow_history
         }
         try:
             with open(STATE_FILE, "w") as f:
                 json.dump(data, f, indent=4)
         except Exception as e:
             print(f"Error saving state: {e}")
+
+    def get_open_trade_count(self):
+        return sum(1 for v in self.positions.values() if v is not None)
+
+    def get_locked_balance(self):
+        return self.get_open_trade_count() * POSITION_SIZE
+
+    def get_available_balance(self):
+        return self.balance - self.get_locked_balance()
 
     def fetch_market_data(self, symbol):
         data = yf.download(symbol, period="5d", interval="5m", progress=False)
@@ -111,12 +180,11 @@ class SmartMoneyBotMulti:
         else:
             current_time = current_time.astimezone(pytz.utc)
         hour = current_time.hour
-        # 7 AM to 10 PM UTC
         if 7 <= hour <= 22: return True
         return False
 
     def detect_order_blocks(self, data, symbol):
-        if len(data) < 3: return None
+        if len(data) < 4: return None
         c1, c2, c3 = data.iloc[-4], data.iloc[-3], data.iloc[-2]
         
         def get_val(row, col):
@@ -165,27 +233,64 @@ class SmartMoneyBotMulti:
         return self.check_liquidity_grab(data, symbol)
 
     def execute_trade(self, symbol, signal, current_price, news_sentiment):
+        display = self.get_display_name(symbol)
+        
+        # فلتر الأخبار
         if signal == 1 and news_sentiment == -1:
-            print(f"[{symbol}] ⚠️ BUY ignored: Bad news.")
+            print(f"[{display}] ⚠️ BUY ignored: Bad news.")
             return None
         if signal == -1 and news_sentiment == 1:
-            print(f"[{symbol}] ⚠️ SELL ignored: Positive news.")
+            print(f"[{display}] ⚠️ SELL ignored: Positive news.")
             return None
             
         action_msg = None
         current_pos = self.positions[symbol]
+        shadow_pos = self.shadow_trades[symbol]
+        
+        # معالجة Shadow Trades
+        if shadow_pos is not None:
+            if (shadow_pos == "BUY" and signal == -1) or (shadow_pos == "SELL" and signal == 1):
+                self.close_shadow_trade(symbol, float(current_price))
         
         if current_pos is None:
-            if signal == 1:
-                self.positions[symbol] = "BUY"
-                self.entry_prices[symbol] = float(current_price)
-                action_msg = f"🟩 *OPENING BUY* on {symbol}\n📍 *Entry:* `{current_price:.5f}`\n💰 *Total Balance:* `{self.balance:.2f}$`"
-                print(action_msg)
-            elif signal == -1:
-                self.positions[symbol] = "SELL"
-                self.entry_prices[symbol] = float(current_price)
-                action_msg = f"🟥 *OPENING SELL* on {symbol}\n📍 *Entry:* `{current_price:.5f}`\n💰 *Total Balance:* `{self.balance:.2f}$`"
-                print(action_msg)
+            if signal != 0:
+                available = self.get_available_balance()
+                entry_fee = POSITION_SIZE * BROKER_FEE
+                
+                if available >= POSITION_SIZE:
+                    direction = "BUY" if signal == 1 else "SELL"
+                    self.positions[symbol] = direction
+                    self.entry_prices[symbol] = float(current_price)
+                    self.balance -= entry_fee
+                    
+                    reason = "Liquidity Sweep at Support" if signal == 1 else "Liquidity Sweep at Resistance"
+                    emoji = "🟩" if signal == 1 else "🟥"
+                    open_count = self.get_open_trade_count()
+                    
+                    action_msg = (f"{emoji} *FOREX {direction}* on *{display}*\n"
+                                  f"📍 *Entry:* `{current_price:.5f}`\n"
+                                  f"💵 *Deal Size:* `{POSITION_SIZE}$`\n"
+                                  f"💸 *Entry Fee:* `-{entry_fee:.2f}$`\n"
+                                  f"📂 *Open Trades:* `{open_count}/{len(self.symbols)}`\n"
+                                  f"💰 *Balance:* `{self.balance:.2f}$`\n"
+                                  f"💥 _Reason: {reason}_")
+                    print(action_msg)
+                else:
+                    direction = "BUY" if signal == 1 else "SELL"
+                    reason = "Liquidity Sweep at Support" if signal == 1 else "Liquidity Sweep at Resistance"
+                    
+                    self.shadow_trades[symbol] = direction
+                    self.shadow_entry_prices[symbol] = float(current_price)
+                    
+                    open_count = self.get_open_trade_count()
+                    action_msg = (f"⚠️ *SIGNAL (Not Enough Balance)* ⚠️\n"
+                                  f"📊 *Pair:* `{display}`\n"
+                                  f"📍 *Recommended:* `{direction}` at `{current_price:.5f}`\n"
+                                  f"📂 *Open Trades:* `{open_count}/{len(self.symbols)}`\n"
+                                  f"💰 *Available:* `{available:.2f}$` (need `{POSITION_SIZE}$`)\n"
+                                  f"💥 _Reason: {reason}_\n"
+                                  f"📌 _Will track result without affecting balance_")
+                    print(action_msg)
         else:
             if (current_pos == "BUY" and signal == -1) or (current_pos == "SELL" and signal == 1):
                 action_msg = self.close_position(symbol, float(current_price))
@@ -194,27 +299,42 @@ class SmartMoneyBotMulti:
         return action_msg
 
     def close_position(self, symbol, current_price):
+        display = self.get_display_name(symbol)
         current_pos = self.positions[symbol]
         entry = self.entry_prices[symbol]
         
-        # معادلة أرباح موحدة تناسب كل الأزواج بناءً على نسبة التحرك من نقطة الدخول
-        # افترضنا إن حجم الدخول بـ 100,000 دولار كرافعة مالية موحدة للتبسيط
         if current_pos == "BUY":
-            profit_loss = ((current_price - entry) / entry) * 100000 
+            gross_pnl = POSITION_SIZE * ((current_price - entry) / entry)
         elif current_pos == "SELL":
-            profit_loss = ((entry - current_price) / entry) * 100000
+            gross_pnl = POSITION_SIZE * ((entry - current_price) / entry)
             
-        self.balance += profit_loss
-        status = "🟢 WIN" if profit_loss > 0 else "🔴 LOSS"
+        exit_fee = POSITION_SIZE * BROKER_FEE
+        net_pnl = gross_pnl - exit_fee
+        total_fees = (POSITION_SIZE * BROKER_FEE) * 2
+            
+        pct_change = ((current_price - entry) / entry) * 100
+        self.balance += gross_pnl - exit_fee
+        status = "🟢 WIN" if net_pnl > 0 else "🔴 LOSS"
         
-        msg = f"⚪ *CLOSING {current_pos}* on {symbol}\n💵 *P/L:* `{profit_loss:.2f}$` ({status})\n🏦 *New Balance:* `{self.balance:.2f}$`"
+        msg = (f"💸 *FOREX TRADE CLOSED* 💸\n"
+               f"📊 *Pair:* `{display}`\n"
+               f"🔄 *Type:* `{current_pos}`\n"
+               f"📍 *Entry:* `{entry:.5f}`\n"
+               f"🏁 *Exit:* `{current_price:.5f}`\n"
+               f"📊 *Change:* `{pct_change:+.2f}%`\n"
+               f"💰 *Gross P/L:* `{gross_pnl:+.2f}$`\n"
+               f"💸 *Total Fees:* `-{total_fees:.2f}$` (0.1% x2)\n"
+               f"💵 *Net P/L:* `{net_pnl:+.2f}$` ({status})\n"
+               f"🏦 *New Balance:* `{self.balance:.2f}$`")
         print(msg)
         
         self.history[symbol].append({
             'Type': current_pos, 
             'Entry': entry, 
             'Exit': current_price, 
-            'P/L': profit_loss, 
+            'Gross_PnL': round(gross_pnl, 2),
+            'Fees': round(total_fees, 2),
+            'P/L': round(net_pnl, 2), 
             'Status': status,
             'Time': datetime.now().strftime('%Y-%m-%d %H:%M')
         })
@@ -222,11 +342,50 @@ class SmartMoneyBotMulti:
         self.positions[symbol] = None
         self.entry_prices[symbol] = 0.0
         
-        # إرسال ملخص الزوج ده بعد القفلة
         self.send_symbol_summary(symbol)
         return msg
 
+    def close_shadow_trade(self, symbol, current_price):
+        display = self.get_display_name(symbol)
+        shadow_pos = self.shadow_trades[symbol]
+        entry = self.shadow_entry_prices[symbol]
+        
+        if shadow_pos == "BUY":
+            gross_pnl = POSITION_SIZE * ((current_price - entry) / entry)
+        elif shadow_pos == "SELL":
+            gross_pnl = POSITION_SIZE * ((entry - current_price) / entry)
+            
+        total_fees = (POSITION_SIZE * BROKER_FEE) * 2
+        net_pnl = gross_pnl - total_fees
+        pct_change = ((current_price - entry) / entry) * 100
+        status = "🟢 WIN" if net_pnl > 0 else "🔴 LOSS"
+        
+        msg = (f"👻 *SHADOW TRADE RESULT (Not in Balance)* 👻\n"
+               f"📊 *Pair:* `{display}`\n"
+               f"🔄 *Type:* `{shadow_pos}`\n"
+               f"📍 *Entry:* `{entry:.5f}`\n"
+               f"🏁 *Exit:* `{current_price:.5f}`\n"
+               f"📊 *Change:* `{pct_change:+.2f}%`\n"
+               f"💵 *Would-be Net P/L:* `{net_pnl:+.2f}$` ({status})\n"
+               f"📌 _This trade was NOT executed (insufficient balance)_")
+        print(msg)
+        send_telegram_message(msg)
+        
+        self.shadow_history[symbol].append({
+            'Type': shadow_pos,
+            'Entry': entry,
+            'Exit': current_price,
+            'P/L': round(net_pnl, 2),
+            'Status': status,
+            'Time': datetime.now().strftime('%Y-%m-%d %H:%M')
+        })
+        
+        self.shadow_trades[symbol] = None
+        self.shadow_entry_prices[symbol] = 0.0
+        self.save_state()
+
     def send_symbol_summary(self, symbol):
+        display = self.get_display_name(symbol)
         hist = self.history[symbol]
         if not hist: return
             
@@ -234,24 +393,30 @@ class SmartMoneyBotMulti:
         total = len(hist)
         win_rate = (wins / total) * 100 if total > 0 else 0
         total_profit = sum(t['P/L'] for t in hist)
+        total_fees = sum(t.get('Fees', 0) for t in hist)
         
-        summary_msg = f"📊 *{symbol} Performance Summary*\n"
-        summary_msg += f"🏅 *Total P/L from {symbol}:* `{total_profit:.2f}$`\n"
+        summary_msg = f"📊 *{display} Performance Summary*\n"
+        summary_msg += f"🏅 *Net P/L:* `{total_profit:+.2f}$`\n"
+        summary_msg += f"💸 *Total Fees Paid:* `{total_fees:.2f}$`\n"
         summary_msg += f"📈 *Win Rate:* `{win_rate:.1f}%` ({wins}/{total})\n\n"
-        summary_msg += "📜 *Last 3 Trades:*\n"
+        summary_msg += "📜 *Recent Trades:*\n"
         
         for t in hist[-3:]:
             emoji = "🟢" if "WIN" in t.get('Status', '') else "🔴"
-            summary_msg += f"{emoji} {t['Type']} | P/L: `{t['P/L']:.2f}$`\n"
+            summary_msg += f"{emoji} {t['Type']} | Entry: `{t['Entry']:.5f}` → Exit: `{t['Exit']:.5f}` | Net: `{t['P/L']:+.2f}$`\n"
             
         print(summary_msg.replace('*', '').replace('`', ''))
         send_telegram_message(summary_msg)
 
     def run_all(self):
-        print(f"[{datetime.now().strftime('%H:%M:%S')}] Starting multi-symbol scan...")
+        print(f"\n[{datetime.now().strftime('%H:%M:%S')}] Scanning {len(self.symbols)} Forex pairs...")
+        print(f"💰 Balance: {self.balance:.2f}$ | 📂 Open: {self.get_open_trade_count()}/{len(self.symbols)} | 🔓 Available: {self.get_available_balance():.2f}$")
         for symbol in self.symbols:
             try:
                 data = self.fetch_market_data(symbol)
+                if data.empty or len(data) < 21:
+                    continue
+                    
                 if isinstance(data.columns, pd.MultiIndex):
                     current_price = data.iloc[-1][('Close', symbol)]
                 else:
@@ -268,14 +433,25 @@ class SmartMoneyBotMulti:
                 if msg:
                     send_telegram_message(msg)
                 
+                display = self.get_display_name(symbol)
                 if signal != 0:
-                    print(f"[{symbol}] Price: {float(current_price):.5f} | Signal: {signal}")
+                    print(f"[{display}] Price: {float(current_price):.5f} | Signal: {signal}")
+                else:
+                    print(f"[{display}] Price: {float(current_price):.5f} | Signal: 0 (No trade)")
                 
             except Exception as e:
-                print(f"[{symbol}] Error: {e}")
-        print("-" * 50)
+                display = self.get_display_name(symbol)
+                print(f"[{display}] Error: {e}")
+        print("-" * 60)
 
 if __name__ == "__main__":
     bot = SmartMoneyBotMulti()
-    print(f"🤖 Smart Money Bot Starting for {len(bot.symbols)} symbols... Balance: {bot.balance}$")
-    bot.run_all()
+    print(f"🤖 Forex Bot Ready | Balance: {bot.balance:.2f}$ | Monitoring: {len(bot.symbols)} pairs")
+    
+    if os.getenv('GITHUB_ACTIONS'):
+        bot.run_all()
+    else:
+        while True:
+            bot.run_all()
+            print("Waiting 5 minutes for the next candle... ⏳")
+            time.sleep(300)
