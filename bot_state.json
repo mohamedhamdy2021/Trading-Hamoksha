@@ -1,5 +1,5 @@
 {
-    "balance": 1499.3095537358201,
+    "balance": 1498.6529994093291,
     "positions": {
         "EURUSD=X": null,
         "GBPUSD=X": "BUY",
@@ -9,12 +9,12 @@
         "USDCAD=X": "BUY",
         "NZDUSD=X": null,
         "GBPJPY=X": "SELL",
-        "EURJPY=X": "BUY",
+        "EURJPY=X": null,
         "EURGBP=X": "BUY",
         "AUDNZD=X": null,
         "EURCHF=X": null,
         "GBPCHF=X": null,
-        "CADJPY=X": "BUY",
+        "CADJPY=X": null,
         "GC=F": "SELL"
     },
     "entry_prices": {
@@ -26,12 +26,12 @@
         "USDCAD=X": 1.3726400136947632,
         "NZDUSD=X": 0.0,
         "GBPJPY=X": 213.23699951171875,
-        "EURJPY=X": 183.79800415039062,
+        "EURJPY=X": 0.0,
         "EURGBP=X": 0.864109992980957,
         "AUDNZD=X": 0.0,
         "EURCHF=X": 0.0,
         "GBPCHF=X": 0.0,
-        "CADJPY=X": 116.06900024414062,
+        "CADJPY=X": 0.0,
         "GC=F": 4492.0
     },
     "history": {
@@ -43,7 +43,18 @@
         "USDCAD=X": [],
         "NZDUSD=X": [],
         "GBPJPY=X": [],
-        "EURJPY=X": [],
+        "EURJPY=X": [
+            {
+                "Type": "BUY",
+                "Entry": 183.79800415039062,
+                "Exit": 184.00399780273438,
+                "Gross_PnL": 0.11,
+                "Fees": 0.2,
+                "P/L": 0.01,
+                "Status": "\ud83d\udfe2 WIN",
+                "Time": "2026-03-24 07:17"
+            }
+        ],
         "EURGBP=X": [],
         "AUDNZD=X": [
             {
@@ -70,7 +81,18 @@
             }
         ],
         "GBPCHF=X": [],
-        "CADJPY=X": [],
+        "CADJPY=X": [
+            {
+                "Type": "BUY",
+                "Entry": 116.06900024414062,
+                "Exit": 115.40899658203125,
+                "Gross_PnL": -0.57,
+                "Fees": 0.2,
+                "P/L": -0.67,
+                "Status": "\ud83d\udd34 LOSS",
+                "Time": "2026-03-24 07:17"
+            }
+        ],
         "GC=F": []
     },
     "shadow_trades": {
