@@ -1,5 +1,5 @@
 {
-    "balance": 1498.4221548576897,
+    "balance": 1498.3091231300862,
     "positions": {
         "EURUSD=X": null,
         "GBPUSD=X": "SELL",
@@ -8,8 +8,8 @@
         "AUDUSD=X": null,
         "USDCAD=X": "SELL",
         "NZDUSD=X": null,
-        "GBPJPY=X": "BUY",
-        "EURJPY=X": null,
+        "GBPJPY=X": null,
+        "EURJPY=X": "SELL",
         "EURGBP=X": "SELL",
         "AUDNZD=X": "BUY",
         "EURCHF=X": "SELL",
@@ -25,8 +25,8 @@
         "AUDUSD=X": 0.0,
         "USDCAD=X": 1.383039951324463,
         "NZDUSD=X": 0.0,
-        "GBPJPY=X": 212.73599243164062,
-        "EURJPY=X": 0.0,
+        "GBPJPY=X": 0.0,
+        "EURJPY=X": 184.38999938964844,
         "EURGBP=X": 0.8651999831199646,
         "AUDNZD=X": 1.1936099529266357,
         "EURCHF=X": 0.9180999994277954,
@@ -95,6 +95,16 @@
                 "P/L": -0.03,
                 "Status": "\ud83d\udd34 LOSS",
                 "Time": "2026-03-24 15:54"
+            },
+            {
+                "Type": "BUY",
+                "Entry": 212.73599243164062,
+                "Exit": 212.92100524902344,
+                "Gross_PnL": 0.09,
+                "Fees": 0.2,
+                "P/L": -0.01,
+                "Status": "\ud83d\udd34 LOSS",
+                "Time": "2026-03-27 15:36"
             }
         ],
         "EURJPY=X": [
