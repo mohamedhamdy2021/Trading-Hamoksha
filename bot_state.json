@@ -1,5 +1,5 @@
 {
-    "balance": 1498.3091231300862,
+    "balance": 1498.2091231300863,
     "positions": {
         "EURUSD=X": null,
         "GBPUSD=X": "SELL",
@@ -8,7 +8,7 @@
         "AUDUSD=X": null,
         "USDCAD=X": "SELL",
         "NZDUSD=X": null,
-        "GBPJPY=X": null,
+        "GBPJPY=X": "SELL",
         "EURJPY=X": "SELL",
         "EURGBP=X": "SELL",
         "AUDNZD=X": "BUY",
@@ -25,7 +25,7 @@
         "AUDUSD=X": 0.0,
         "USDCAD=X": 1.383039951324463,
         "NZDUSD=X": 0.0,
-        "GBPJPY=X": 0.0,
+        "GBPJPY=X": 212.7519989013672,
         "EURJPY=X": 184.38999938964844,
         "EURGBP=X": 0.8651999831199646,
         "AUDNZD=X": 1.1936099529266357,
