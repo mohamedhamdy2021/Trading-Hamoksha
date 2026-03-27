@@ -1,5 +1,5 @@
 {
-    "balance": 1498.2040674082375,
+    "balance": 1496.8001424296413,
     "positions": {
         "EURUSD=X": null,
         "GBPUSD=X": "SELL",
@@ -7,15 +7,15 @@
         "USDCHF=X": "BUY",
         "AUDUSD=X": null,
         "USDCAD=X": "SELL",
-        "NZDUSD=X": null,
+        "NZDUSD=X": "SELL",
         "GBPJPY=X": null,
         "EURJPY=X": "SELL",
         "EURGBP=X": "SELL",
         "AUDNZD=X": "BUY",
-        "EURCHF=X": "SELL",
+        "EURCHF=X": null,
         "GBPCHF=X": "BUY",
         "CADJPY=X": "BUY",
-        "GC=F": "SELL"
+        "GC=F": null
     },
     "entry_prices": {
         "EURUSD=X": 0.0,
@@ -24,15 +24,15 @@
         "USDCHF=X": 0.7860199809074402,
         "AUDUSD=X": 0.0,
         "USDCAD=X": 1.383039951324463,
-        "NZDUSD=X": 0.0,
+        "NZDUSD=X": 0.5747126340866089,
         "GBPJPY=X": 0.0,
         "EURJPY=X": 184.38999938964844,
         "EURGBP=X": 0.8651999831199646,
         "AUDNZD=X": 1.1936099529266357,
-        "EURCHF=X": 0.9180999994277954,
+        "EURCHF=X": 0.0,
         "GBPCHF=X": 1.055359959602356,
         "CADJPY=X": 115.25900268554688,
-        "GC=F": 4492.0
+        "GC=F": 0.0
     },
     "history": {
         "EURUSD=X": [],
@@ -203,6 +203,16 @@
                 "P/L": 0.02,
                 "Status": "\ud83d\udfe2 WIN",
                 "Time": "2026-03-26 21:43"
+            },
+            {
+                "Type": "SELL",
+                "Entry": 0.9180999994277954,
+                "Exit": 0.9196100234985352,
+                "Gross_PnL": -0.16,
+                "Fees": 0.2,
+                "P/L": -0.26,
+                "Status": "\ud83d\udd34 LOSS",
+                "Time": "2026-03-27 20:54"
             }
         ],
         "GBPCHF=X": [],
@@ -218,7 +228,18 @@
                 "Time": "2026-03-24 07:17"
             }
         ],
-        "GC=F": []
+        "GC=F": [
+            {
+                "Type": "SELL",
+                "Entry": 4492.0,
+                "Exit": 4534.2001953125,
+                "Gross_PnL": -0.94,
+                "Fees": 0.2,
+                "P/L": -1.04,
+                "Status": "\ud83d\udd34 LOSS",
+                "Time": "2026-03-27 20:54"
+            }
+        ]
     },
     "shadow_trades": {
         "EURUSD=X": null,
