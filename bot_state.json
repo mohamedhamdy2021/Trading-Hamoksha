@@ -1,11 +1,11 @@
 {
-    "balance": 1497.0255628656457,
+    "balance": 1489.635806265514,
     "positions": {
         "EURUSD=X": "SELL",
-        "GBPUSD=X": "SELL",
-        "USDJPY=X": "BUY",
+        "GBPUSD=X": null,
+        "USDJPY=X": null,
         "USDCHF=X": "BUY",
-        "AUDUSD=X": "SELL",
+        "AUDUSD=X": null,
         "USDCAD=X": "BUY",
         "NZDUSD=X": "SELL",
         "GBPJPY=X": "SELL",
@@ -19,10 +19,10 @@
     },
     "entry_prices": {
         "EURUSD=X": 1.1588828563690186,
-        "GBPUSD=X": 1.3183985948562622,
-        "USDJPY=X": 159.04600524902344,
+        "GBPUSD=X": 0.0,
+        "USDJPY=X": 0.0,
         "USDCHF=X": 0.7860199809074402,
-        "AUDUSD=X": 0.6852694153785706,
+        "AUDUSD=X": 0.0,
         "USDCAD=X": 1.3876899480819702,
         "NZDUSD=X": 0.5747126340866089,
         "GBPJPY=X": 215.3179931640625,
@@ -56,6 +56,16 @@
                 "P/L": 0.77,
                 "Status": "\ud83d\udfe2 WIN",
                 "Time": "2026-03-30 08:04"
+            },
+            {
+                "Type": "SELL",
+                "Entry": 1.3183985948562622,
+                "Exit": 1.3564931154251099,
+                "Gross_PnL": -2.89,
+                "Fees": 0.2,
+                "P/L": -2.99,
+                "Status": "\ud83d\udd34 LOSS",
+                "Time": "2026-04-14 15:52"
             }
         ],
         "USDJPY=X": [
@@ -98,10 +108,31 @@
                 "P/L": 0.52,
                 "Status": "\ud83d\udfe2 WIN",
                 "Time": "2026-04-13 20:59"
+            },
+            {
+                "Type": "BUY",
+                "Entry": 159.04600524902344,
+                "Exit": 158.88600158691406,
+                "Gross_PnL": -0.1,
+                "Fees": 0.2,
+                "P/L": -0.2,
+                "Status": "\ud83d\udd34 LOSS",
+                "Time": "2026-04-14 15:52"
             }
         ],
         "USDCHF=X": [],
-        "AUDUSD=X": [],
+        "AUDUSD=X": [
+            {
+                "Type": "SELL",
+                "Entry": 0.6852694153785706,
+                "Exit": 0.7133634090423584,
+                "Gross_PnL": -4.1,
+                "Fees": 0.2,
+                "P/L": -4.2,
+                "Status": "\ud83d\udd34 LOSS",
+                "Time": "2026-04-14 15:52"
+            }
+        ],
         "USDCAD=X": [
             {
                 "Type": "BUY",
