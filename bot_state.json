@@ -1,5 +1,5 @@
 {
-    "balance": 1487.8325624511692,
+    "balance": 1486.4752833523933,
     "positions": {
         "EURUSD=X": "SELL",
         "GBPUSD=X": "BUY",
@@ -9,13 +9,13 @@
         "USDCAD=X": "BUY",
         "NZDUSD=X": "SELL",
         "GBPJPY=X": null,
-        "EURJPY=X": "BUY",
+        "EURJPY=X": null,
         "EURGBP=X": "BUY",
         "AUDNZD=X": "BUY",
         "EURCHF=X": "BUY",
         "GBPCHF=X": "BUY",
         "CADJPY=X": null,
-        "GC=F": "BUY"
+        "GC=F": null
     },
     "entry_prices": {
         "EURUSD=X": 1.1588828563690186,
@@ -26,13 +26,13 @@
         "USDCAD=X": 1.3876899480819702,
         "NZDUSD=X": 0.5747126340866089,
         "GBPJPY=X": 0.0,
-        "EURJPY=X": 187.28599548339844,
+        "EURJPY=X": 0.0,
         "EURGBP=X": 0.8688600063323975,
         "AUDNZD=X": 1.2167500257492065,
         "EURCHF=X": 0.9168499708175659,
         "GBPCHF=X": 1.0600099563598633,
         "CADJPY=X": 0.0,
-        "GC=F": 4879.60009765625
+        "GC=F": 0.0
     },
     "history": {
         "EURUSD=X": [],
@@ -278,6 +278,16 @@
                 "P/L": 0.44,
                 "Status": "\ud83d\udfe2 WIN",
                 "Time": "2026-04-14 07:03"
+            },
+            {
+                "Type": "BUY",
+                "Entry": 187.28599548339844,
+                "Exit": 187.05299377441406,
+                "Gross_PnL": -0.12,
+                "Fees": 0.2,
+                "P/L": -0.22,
+                "Status": "\ud83d\udd34 LOSS",
+                "Time": "2026-04-20 17:34"
             }
         ],
         "EURGBP=X": [
@@ -580,6 +590,16 @@
                 "P/L": -1.71,
                 "Status": "\ud83d\udd34 LOSS",
                 "Time": "2026-04-18 04:41"
+            },
+            {
+                "Type": "BUY",
+                "Entry": 4879.60009765625,
+                "Exit": 4829.2001953125,
+                "Gross_PnL": -1.03,
+                "Fees": 0.2,
+                "P/L": -1.13,
+                "Status": "\ud83d\udd34 LOSS",
+                "Time": "2026-04-20 17:34"
             }
         ]
     },
