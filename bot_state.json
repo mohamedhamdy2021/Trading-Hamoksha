@@ -1,5 +1,5 @@
 {
-    "balance": 1486.856876545905,
+    "balance": 1487.8325624511692,
     "positions": {
         "EURUSD=X": "SELL",
         "GBPUSD=X": "BUY",
@@ -8,13 +8,13 @@
         "AUDUSD=X": "SELL",
         "USDCAD=X": "BUY",
         "NZDUSD=X": "SELL",
-        "GBPJPY=X": "BUY",
+        "GBPJPY=X": null,
         "EURJPY=X": "BUY",
         "EURGBP=X": "BUY",
         "AUDNZD=X": "BUY",
-        "EURCHF=X": null,
+        "EURCHF=X": "BUY",
         "GBPCHF=X": "BUY",
-        "CADJPY=X": "BUY",
+        "CADJPY=X": null,
         "GC=F": "BUY"
     },
     "entry_prices": {
@@ -25,13 +25,13 @@
         "AUDUSD=X": 0.7173703908920288,
         "USDCAD=X": 1.3876899480819702,
         "NZDUSD=X": 0.5747126340866089,
-        "GBPJPY=X": 215.23500061035156,
+        "GBPJPY=X": 0.0,
         "EURJPY=X": 187.28599548339844,
         "EURGBP=X": 0.8688600063323975,
         "AUDNZD=X": 1.2167500257492065,
-        "EURCHF=X": 0.0,
+        "EURCHF=X": 0.9168499708175659,
         "GBPCHF=X": 1.0600099563598633,
-        "CADJPY=X": 114.4280014038086,
+        "CADJPY=X": 0.0,
         "GC=F": 4879.60009765625
     },
     "history": {
@@ -216,6 +216,16 @@
                 "P/L": -0.18,
                 "Status": "\ud83d\udd34 LOSS",
                 "Time": "2026-04-15 21:32"
+            },
+            {
+                "Type": "BUY",
+                "Entry": 215.23500061035156,
+                "Exit": 214.6739959716797,
+                "Gross_PnL": -0.26,
+                "Fees": 0.2,
+                "P/L": -0.36,
+                "Status": "\ud83d\udd34 LOSS",
+                "Time": "2026-04-20 14:57"
             }
         ],
         "EURJPY=X": [
@@ -518,6 +528,16 @@
                 "P/L": -0.13,
                 "Status": "\ud83d\udd34 LOSS",
                 "Time": "2026-04-07 22:09"
+            },
+            {
+                "Type": "BUY",
+                "Entry": 114.4280014038086,
+                "Exit": 116.18599700927734,
+                "Gross_PnL": 1.54,
+                "Fees": 0.2,
+                "P/L": 1.44,
+                "Status": "\ud83d\udfe2 WIN",
+                "Time": "2026-04-20 14:58"
             }
         ],
         "GC=F": [
