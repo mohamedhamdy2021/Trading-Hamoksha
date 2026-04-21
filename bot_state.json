@@ -1,8 +1,8 @@
 {
-    "balance": 1485.8371640557573,
+    "balance": 1484.6639066041214,
     "positions": {
         "EURUSD=X": "SELL",
-        "GBPUSD=X": "BUY",
+        "GBPUSD=X": null,
         "USDJPY=X": "SELL",
         "USDCHF=X": "BUY",
         "AUDUSD=X": "SELL",
@@ -13,13 +13,13 @@
         "EURGBP=X": "BUY",
         "AUDNZD=X": "BUY",
         "EURCHF=X": "BUY",
-        "GBPCHF=X": "BUY",
+        "GBPCHF=X": null,
         "CADJPY=X": "BUY",
         "GC=F": "SELL"
     },
     "entry_prices": {
         "EURUSD=X": 1.1588828563690186,
-        "GBPUSD=X": 1.356386423110962,
+        "GBPUSD=X": 0.0,
         "USDJPY=X": 159.38400268554688,
         "USDCHF=X": 0.7860199809074402,
         "AUDUSD=X": 0.7173703908920288,
@@ -30,7 +30,7 @@
         "EURGBP=X": 0.8688600063323975,
         "AUDNZD=X": 1.2167500257492065,
         "EURCHF=X": 0.9168499708175659,
-        "GBPCHF=X": 1.0600099563598633,
+        "GBPCHF=X": 0.0,
         "CADJPY=X": 116.64700317382812,
         "GC=F": 4841.0
     },
@@ -66,6 +66,16 @@
                 "P/L": -2.99,
                 "Status": "\ud83d\udd34 LOSS",
                 "Time": "2026-04-14 15:52"
+            },
+            {
+                "Type": "BUY",
+                "Entry": 1.356386423110962,
+                "Exit": 1.3505429029464722,
+                "Gross_PnL": -0.43,
+                "Fees": 0.2,
+                "P/L": -0.53,
+                "Status": "\ud83d\udd34 LOSS",
+                "Time": "2026-04-21 21:03"
             }
         ],
         "USDJPY=X": [
@@ -516,6 +526,16 @@
                 "P/L": 0.39,
                 "Status": "\ud83d\udfe2 WIN",
                 "Time": "2026-04-08 11:29"
+            },
+            {
+                "Type": "BUY",
+                "Entry": 1.0600099563598633,
+                "Exit": 1.054260015487671,
+                "Gross_PnL": -0.54,
+                "Fees": 0.2,
+                "P/L": -0.64,
+                "Status": "\ud83d\udd34 LOSS",
+                "Time": "2026-04-21 21:03"
             }
         ],
         "CADJPY=X": [
