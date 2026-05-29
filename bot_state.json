@@ -1,5 +1,5 @@
 {
-    "balance": 1475.08767981728,
+    "balance": 1477.6429205503007,
     "positions": {
         "EURUSD=X": null,
         "GBPUSD=X": null,
@@ -8,14 +8,14 @@
         "AUDUSD=X": "SELL",
         "USDCAD=X": "SELL",
         "NZDUSD=X": "SELL",
-        "GBPJPY=X": "SELL",
+        "GBPJPY=X": null,
         "EURJPY=X": null,
         "EURGBP=X": "BUY",
         "AUDNZD=X": "BUY",
         "EURCHF=X": "BUY",
         "GBPCHF=X": "BUY",
         "CADJPY=X": "BUY",
-        "GC=F": "SELL"
+        "GC=F": null
     },
     "entry_prices": {
         "EURUSD=X": 0.0,
@@ -25,14 +25,14 @@
         "AUDUSD=X": 0.7167431116104126,
         "USDCAD=X": 1.3687299489974976,
         "NZDUSD=X": 0.5902490615844727,
-        "GBPJPY=X": 212.26600646972656,
+        "GBPJPY=X": 0.0,
         "EURJPY=X": 0.0,
         "EURGBP=X": 0.8633999824523926,
         "AUDNZD=X": 1.217919945716858,
         "EURCHF=X": 0.9237200021743774,
         "GBPCHF=X": 1.0590200424194336,
         "CADJPY=X": 116.64700317382812,
-        "GC=F": 4751.7998046875
+        "GC=F": 0.0
     },
     "history": {
         "EURUSD=X": [
@@ -439,6 +439,16 @@
                 "P/L": -0.88,
                 "Status": "\ud83d\udd34 LOSS",
                 "Time": "2026-05-08 20:14"
+            },
+            {
+                "Type": "SELL",
+                "Entry": 212.26600646972656,
+                "Exit": 214.36000061035156,
+                "Gross_PnL": -0.99,
+                "Fees": 0.2,
+                "P/L": -1.09,
+                "Status": "\ud83d\udd34 LOSS",
+                "Time": "2026-05-29 20:43"
             }
         ],
         "EURJPY=X": [
@@ -963,6 +973,16 @@
                 "P/L": 1.67,
                 "Status": "\ud83d\udfe2 WIN",
                 "Time": "2026-04-22 14:43"
+            },
+            {
+                "Type": "SELL",
+                "Entry": 4751.7998046875,
+                "Exit": 4574.0,
+                "Gross_PnL": 3.74,
+                "Fees": 0.2,
+                "P/L": 3.64,
+                "Status": "\ud83d\udfe2 WIN",
+                "Time": "2026-05-29 20:43"
             }
         ]
     },
