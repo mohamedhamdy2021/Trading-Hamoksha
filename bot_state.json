@@ -1,16 +1,16 @@
 {
-    "balance": 1476.6333617653877,
+    "balance": 1473.7108364137066,
     "positions": {
         "EURUSD=X": null,
         "GBPUSD=X": "BUY",
-        "USDJPY=X": "SELL",
+        "USDJPY=X": null,
         "USDCHF=X": "SELL",
         "AUDUSD=X": "SELL",
-        "USDCAD=X": "SELL",
+        "USDCAD=X": null,
         "NZDUSD=X": "SELL",
         "GBPJPY=X": "BUY",
         "EURJPY=X": null,
-        "EURGBP=X": null,
+        "EURGBP=X": "SELL",
         "AUDNZD=X": "BUY",
         "EURCHF=X": "BUY",
         "GBPCHF=X": "BUY",
@@ -20,14 +20,14 @@
     "entry_prices": {
         "EURUSD=X": 0.0,
         "GBPUSD=X": 1.3457320928573608,
-        "USDJPY=X": 157.1300048828125,
+        "USDJPY=X": 0.0,
         "USDCHF=X": 0.7807499766349792,
         "AUDUSD=X": 0.7167431116104126,
-        "USDCAD=X": 1.3687299489974976,
+        "USDCAD=X": 0.0,
         "NZDUSD=X": 0.5902490615844727,
         "GBPJPY=X": 214.68699645996094,
         "EURJPY=X": 0.0,
-        "EURGBP=X": 0.0,
+        "EURGBP=X": 0.8640400171279907,
         "AUDNZD=X": 1.217919945716858,
         "EURCHF=X": 0.9237200021743774,
         "GBPCHF=X": 1.0590200424194336,
@@ -179,6 +179,16 @@
                 "P/L": -0.08,
                 "Status": "\ud83d\udd34 LOSS",
                 "Time": "2026-04-27 16:59"
+            },
+            {
+                "Type": "SELL",
+                "Entry": 157.1300048828125,
+                "Exit": 159.57699584960938,
+                "Gross_PnL": -1.56,
+                "Fees": 0.2,
+                "P/L": -1.66,
+                "Status": "\ud83d\udd34 LOSS",
+                "Time": "2026-06-01 21:58"
             }
         ],
         "USDCHF=X": [
@@ -315,6 +325,16 @@
                 "P/L": -0.36,
                 "Status": "\ud83d\udd34 LOSS",
                 "Time": "2026-05-04 15:18"
+            },
+            {
+                "Type": "SELL",
+                "Entry": 1.3687299489974976,
+                "Exit": 1.3833099603652954,
+                "Gross_PnL": -1.07,
+                "Fees": 0.2,
+                "P/L": -1.17,
+                "Status": "\ud83d\udd34 LOSS",
+                "Time": "2026-06-01 21:58"
             }
         ],
         "NZDUSD=X": [
