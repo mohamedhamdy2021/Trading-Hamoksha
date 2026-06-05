@@ -1,10 +1,10 @@
 {
-    "balance": 1473.2012608407267,
+    "balance": 1465.8166442058418,
     "positions": {
         "EURUSD=X": null,
         "GBPUSD=X": null,
         "USDJPY=X": null,
-        "USDCHF=X": "SELL",
+        "USDCHF=X": null,
         "AUDUSD=X": "SELL",
         "USDCAD=X": "SELL",
         "NZDUSD=X": "SELL",
@@ -15,13 +15,13 @@
         "EURCHF=X": "BUY",
         "GBPCHF=X": "BUY",
         "CADJPY=X": "BUY",
-        "GC=F": "BUY"
+        "GC=F": null
     },
     "entry_prices": {
         "EURUSD=X": 0.0,
         "GBPUSD=X": 0.0,
         "USDJPY=X": 0.0,
-        "USDCHF=X": 0.7807499766349792,
+        "USDCHF=X": 0.0,
         "AUDUSD=X": 0.7167431116104126,
         "USDCAD=X": 1.3945399522781372,
         "NZDUSD=X": 0.5902490615844727,
@@ -32,7 +32,7 @@
         "EURCHF=X": 0.9237200021743774,
         "GBPCHF=X": 1.0590200424194336,
         "CADJPY=X": 116.64700317382812,
-        "GC=F": 4593.0
+        "GC=F": 0.0
     },
     "history": {
         "EURUSD=X": [
@@ -261,6 +261,16 @@
                 "P/L": -0.6,
                 "Status": "\ud83d\udd34 LOSS",
                 "Time": "2026-05-29 22:22"
+            },
+            {
+                "Type": "SELL",
+                "Entry": 0.7807499766349792,
+                "Exit": 0.7961999773979187,
+                "Gross_PnL": -1.98,
+                "Fees": 0.2,
+                "P/L": -2.08,
+                "Status": "\ud83d\udd34 LOSS",
+                "Time": "2026-06-05 22:05"
             }
         ],
         "AUDUSD=X": [
@@ -1043,6 +1053,16 @@
                 "P/L": 3.64,
                 "Status": "\ud83d\udfe2 WIN",
                 "Time": "2026-05-29 20:43"
+            },
+            {
+                "Type": "BUY",
+                "Entry": 4593.0,
+                "Exit": 4353.89990234375,
+                "Gross_PnL": -5.21,
+                "Fees": 0.2,
+                "P/L": -5.31,
+                "Status": "\ud83d\udd34 LOSS",
+                "Time": "2026-06-05 22:05"
             }
         ]
     },
