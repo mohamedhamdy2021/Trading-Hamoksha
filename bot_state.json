@@ -1,17 +1,17 @@
 {
-    "balance": 1464.908896339822,
+    "balance": 1465.353986968582,
     "positions": {
         "EURUSD=X": null,
-        "GBPUSD=X": null,
+        "GBPUSD=X": "BUY",
         "USDJPY=X": "BUY",
         "USDCHF=X": "BUY",
         "AUDUSD=X": "SELL",
         "USDCAD=X": null,
         "NZDUSD=X": "SELL",
         "GBPJPY=X": null,
-        "EURJPY=X": "SELL",
+        "EURJPY=X": null,
         "EURGBP=X": "SELL",
-        "AUDNZD=X": "BUY",
+        "AUDNZD=X": null,
         "EURCHF=X": "BUY",
         "GBPCHF=X": "BUY",
         "CADJPY=X": "BUY",
@@ -19,16 +19,16 @@
     },
     "entry_prices": {
         "EURUSD=X": 0.0,
-        "GBPUSD=X": 0.0,
+        "GBPUSD=X": 1.3328890800476074,
         "USDJPY=X": 160.41000366210938,
         "USDCHF=X": 0.7961999773979187,
         "AUDUSD=X": 0.7167431116104126,
         "USDCAD=X": 0.0,
         "NZDUSD=X": 0.5902490615844727,
         "GBPJPY=X": 0.0,
-        "EURJPY=X": 185.78700256347656,
+        "EURJPY=X": 0.0,
         "EURGBP=X": 0.8640400171279907,
-        "AUDNZD=X": 1.2064599990844727,
+        "AUDNZD=X": 0.0,
         "EURCHF=X": 0.9237200021743774,
         "GBPCHF=X": 1.0590200424194336,
         "CADJPY=X": 116.64700317382812,
@@ -611,6 +611,16 @@
                 "P/L": 0.4,
                 "Status": "\ud83d\udfe2 WIN",
                 "Time": "2026-05-26 19:03"
+            },
+            {
+                "Type": "SELL",
+                "Entry": 185.78700256347656,
+                "Exit": 184.85699462890625,
+                "Gross_PnL": 0.5,
+                "Fees": 0.2,
+                "P/L": 0.4,
+                "Status": "\ud83d\udfe2 WIN",
+                "Time": "2026-06-11 14:59"
             }
         ],
         "EURGBP=X": [
@@ -815,6 +825,16 @@
                 "P/L": -0.3,
                 "Status": "\ud83d\udd34 LOSS",
                 "Time": "2026-06-05 20:32"
+            },
+            {
+                "Type": "BUY",
+                "Entry": 1.2064599990844727,
+                "Exit": 1.2094099521636963,
+                "Gross_PnL": 0.24,
+                "Fees": 0.2,
+                "P/L": 0.14,
+                "Status": "\ud83d\udfe2 WIN",
+                "Time": "2026-06-11 14:59"
             }
         ],
         "EURCHF=X": [
