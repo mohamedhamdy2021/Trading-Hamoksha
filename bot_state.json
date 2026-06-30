@@ -1,15 +1,15 @@
 {
-    "balance": 1465.562510173094,
+    "balance": 1464.030096742092,
     "positions": {
-        "EURUSD=X": null,
-        "GBPUSD=X": "BUY",
+        "EURUSD=X": "SELL",
+        "GBPUSD=X": null,
         "USDJPY=X": null,
-        "USDCHF=X": null,
+        "USDCHF=X": "BUY",
         "AUDUSD=X": "SELL",
         "USDCAD=X": "SELL",
         "NZDUSD=X": "SELL",
         "GBPJPY=X": "SELL",
-        "EURJPY=X": "BUY",
+        "EURJPY=X": null,
         "EURGBP=X": "SELL",
         "AUDNZD=X": "SELL",
         "EURCHF=X": null,
@@ -18,15 +18,15 @@
         "GC=F": "SELL"
     },
     "entry_prices": {
-        "EURUSD=X": 0.0,
-        "GBPUSD=X": 1.3328890800476074,
+        "EURUSD=X": 1.1405109167099,
+        "GBPUSD=X": 0.0,
         "USDJPY=X": 0.0,
-        "USDCHF=X": 0.0,
+        "USDCHF=X": 0.8089799880981445,
         "AUDUSD=X": 0.7167431116104126,
         "USDCAD=X": 1.3976999521255493,
         "NZDUSD=X": 0.5902490615844727,
         "GBPJPY=X": 214.98500061035156,
-        "EURJPY=X": 185.80599975585938,
+        "EURJPY=X": 0.0,
         "EURGBP=X": 0.8640400171279907,
         "AUDNZD=X": 1.2213900089263916,
         "EURCHF=X": 0.0,
@@ -107,6 +107,16 @@
                 "P/L": -0.01,
                 "Status": "\ud83d\udd34 LOSS",
                 "Time": "2026-06-02 19:05"
+            },
+            {
+                "Type": "BUY",
+                "Entry": 1.3328890800476074,
+                "Exit": 1.3227163553237915,
+                "Gross_PnL": -0.76,
+                "Fees": 0.2,
+                "P/L": -0.86,
+                "Status": "\ud83d\udd34 LOSS",
+                "Time": "2026-06-30 13:24"
             }
         ],
         "USDJPY=X": [
@@ -661,6 +671,16 @@
                 "P/L": 0.4,
                 "Status": "\ud83d\udfe2 WIN",
                 "Time": "2026-06-11 14:59"
+            },
+            {
+                "Type": "BUY",
+                "Entry": 185.80599975585938,
+                "Exit": 185.1199951171875,
+                "Gross_PnL": -0.37,
+                "Fees": 0.2,
+                "P/L": -0.47,
+                "Status": "\ud83d\udd34 LOSS",
+                "Time": "2026-06-30 13:24"
             }
         ],
         "EURGBP=X": [
