@@ -1,8 +1,8 @@
 {
-    "balance": 1462.174588048296,
+    "balance": 1460.2087838894486,
     "positions": {
-        "EURUSD=X": null,
-        "GBPUSD=X": "SELL",
+        "EURUSD=X": "BUY",
+        "GBPUSD=X": null,
         "USDJPY=X": null,
         "USDCHF=X": "SELL",
         "AUDUSD=X": "SELL",
@@ -18,8 +18,8 @@
         "GC=F": "SELL"
     },
     "entry_prices": {
-        "EURUSD=X": 0.0,
-        "GBPUSD=X": 1.326576590538025,
+        "EURUSD=X": 1.1463946104049683,
+        "GBPUSD=X": 0.0,
         "USDJPY=X": 0.0,
         "USDCHF=X": 0.8079100251197815,
         "AUDUSD=X": 0.7167431116104126,
@@ -127,6 +127,16 @@
                 "P/L": -0.86,
                 "Status": "\ud83d\udd34 LOSS",
                 "Time": "2026-06-30 13:24"
+            },
+            {
+                "Type": "SELL",
+                "Entry": 1.326576590538025,
+                "Exit": 1.350001335144043,
+                "Gross_PnL": -1.77,
+                "Fees": 0.2,
+                "P/L": -1.87,
+                "Status": "\ud83d\udd34 LOSS",
+                "Time": "2026-07-16 11:19"
             }
         ],
         "USDJPY=X": [
