@@ -1,10 +1,10 @@
 {
-    "balance": 1459.733656714523,
+    "balance": 1461.4943329859816,
     "positions": {
         "EURUSD=X": "SELL",
         "GBPUSD=X": "BUY",
         "USDJPY=X": null,
-        "USDCHF=X": "SELL",
+        "USDCHF=X": null,
         "AUDUSD=X": "SELL",
         "USDCAD=X": "BUY",
         "NZDUSD=X": "SELL",
@@ -15,13 +15,13 @@
         "EURCHF=X": "BUY",
         "GBPCHF=X": "BUY",
         "CADJPY=X": "SELL",
-        "GC=F": "BUY"
+        "GC=F": null
     },
     "entry_prices": {
         "EURUSD=X": 1.1375269889831543,
         "GBPUSD=X": 1.3462755680084229,
         "USDJPY=X": 0.0,
-        "USDCHF=X": 0.8079100251197815,
+        "USDCHF=X": 0.0,
         "AUDUSD=X": 0.7167431116104126,
         "USDCAD=X": 1.4059100151062012,
         "NZDUSD=X": 0.5902490615844727,
@@ -32,7 +32,7 @@
         "EURCHF=X": 0.9229999780654907,
         "GBPCHF=X": 1.0879000425338745,
         "CADJPY=X": 115.60399627685547,
-        "GC=F": 4029.5
+        "GC=F": 0.0
     },
     "history": {
         "EURUSD=X": [
@@ -401,6 +401,16 @@
                 "P/L": -0.77,
                 "Status": "\ud83d\udd34 LOSS",
                 "Time": "2026-07-03 13:17"
+            },
+            {
+                "Type": "SELL",
+                "Entry": 0.8079100251197815,
+                "Exit": 0.8083299994468689,
+                "Gross_PnL": -0.05,
+                "Fees": 0.2,
+                "P/L": -0.15,
+                "Status": "\ud83d\udd34 LOSS",
+                "Time": "2026-07-31 19:59"
             }
         ],
         "AUDUSD=X": [
@@ -1473,6 +1483,16 @@
                 "P/L": -0.91,
                 "Status": "\ud83d\udd34 LOSS",
                 "Time": "2026-07-27 22:39"
+            },
+            {
+                "Type": "BUY",
+                "Entry": 4029.5,
+                "Exit": 4110.60009765625,
+                "Gross_PnL": 2.01,
+                "Fees": 0.2,
+                "P/L": 1.91,
+                "Status": "\ud83d\udfe2 WIN",
+                "Time": "2026-07-31 19:59"
             }
         ]
     },
