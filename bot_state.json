@@ -1,12 +1,12 @@
 {
-    "balance": 1471.5837323364515,
+    "balance": 1470.4998303627647,
     "positions": {
         "EURUSD=X": "SELL",
         "GBPUSD=X": "BUY",
         "USDJPY=X": "BUY",
         "USDCHF=X": "BUY",
         "AUDUSD=X": "SELL",
-        "USDCAD=X": "BUY",
+        "USDCAD=X": null,
         "NZDUSD=X": null,
         "GBPJPY=X": "BUY",
         "EURJPY=X": null,
@@ -15,7 +15,7 @@
         "EURCHF=X": "BUY",
         "GBPCHF=X": "SELL",
         "CADJPY=X": null,
-        "GC=F": "SELL"
+        "GC=F": null
     },
     "entry_prices": {
         "EURUSD=X": 1.1375269889831543,
@@ -23,7 +23,7 @@
         "USDJPY=X": 159.37600708007812,
         "USDCHF=X": 0.8073999881744385,
         "AUDUSD=X": 0.7167431116104126,
-        "USDCAD=X": 1.4059100151062012,
+        "USDCAD=X": 0.0,
         "NZDUSD=X": 0.0,
         "GBPJPY=X": 215.23399353027344,
         "EURJPY=X": 0.0,
@@ -32,7 +32,7 @@
         "EURCHF=X": 0.9369699954986572,
         "GBPCHF=X": 1.0973399877548218,
         "CADJPY=X": 0.0,
-        "GC=F": 4426.39990234375
+        "GC=F": 0.0
     },
     "history": {
         "EURUSD=X": [
@@ -535,6 +535,16 @@
                 "P/L": 0.06,
                 "Status": "\ud83d\udfe2 WIN",
                 "Time": "2026-07-24 07:14"
+            },
+            {
+                "Type": "BUY",
+                "Entry": 1.4059100151062012,
+                "Exit": 1.3952300548553467,
+                "Gross_PnL": -0.76,
+                "Fees": 0.2,
+                "P/L": -0.86,
+                "Status": "\ud83d\udd34 LOSS",
+                "Time": "2026-08-13 14:04"
             }
         ],
         "NZDUSD=X": [
@@ -1613,6 +1623,16 @@
                 "P/L": 7.24,
                 "Status": "\ud83d\udfe2 WIN",
                 "Time": "2026-08-07 19:32"
+            },
+            {
+                "Type": "SELL",
+                "Entry": 4426.39990234375,
+                "Exit": 4431.89990234375,
+                "Gross_PnL": -0.12,
+                "Fees": 0.2,
+                "P/L": -0.22,
+                "Status": "\ud83d\udd34 LOSS",
+                "Time": "2026-08-13 14:04"
             }
         ]
     },
