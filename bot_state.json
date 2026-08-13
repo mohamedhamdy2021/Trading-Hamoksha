@@ -1,8 +1,8 @@
 {
-    "balance": 1470.4846112139858,
+    "balance": 1470.3846112139859,
     "positions": {
         "EURUSD=X": "SELL",
-        "GBPUSD=X": null,
+        "GBPUSD=X": "SELL",
         "USDJPY=X": "BUY",
         "USDCHF=X": "BUY",
         "AUDUSD=X": "SELL",
@@ -19,7 +19,7 @@
     },
     "entry_prices": {
         "EURUSD=X": 1.1375269889831543,
-        "GBPUSD=X": 0.0,
+        "GBPUSD=X": 1.3485995531082153,
         "USDJPY=X": 159.37600708007812,
         "USDCHF=X": 0.8073999881744385,
         "AUDUSD=X": 0.7167431116104126,
