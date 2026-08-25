@@ -1,5 +1,5 @@
 {
-    "balance": 1467.4210883891305,
+    "balance": 1467.298875305457,
     "positions": {
         "EURUSD=X": "SELL",
         "GBPUSD=X": "SELL",
@@ -10,7 +10,7 @@
         "NZDUSD=X": "SELL",
         "GBPJPY=X": "BUY",
         "EURJPY=X": "BUY",
-        "EURGBP=X": "BUY",
+        "EURGBP=X": null,
         "AUDNZD=X": "SELL",
         "EURCHF=X": "BUY",
         "GBPCHF=X": "BUY",
@@ -27,7 +27,7 @@
         "NZDUSD=X": 0.5965163707733154,
         "GBPJPY=X": 217.2740020751953,
         "EURJPY=X": 185.84100341796875,
-        "EURGBP=X": 0.8554400205612183,
+        "EURGBP=X": 0.0,
         "AUDNZD=X": 1.1984599828720093,
         "EURCHF=X": 0.937969982624054,
         "GBPCHF=X": 1.0856000185012817,
@@ -1153,6 +1153,16 @@
                 "P/L": -0.12,
                 "Status": "\ud83d\udd34 LOSS",
                 "Time": "2026-08-24 07:16"
+            },
+            {
+                "Type": "BUY",
+                "Entry": 0.8554400205612183,
+                "Exit": 0.8552500009536743,
+                "Gross_PnL": -0.02,
+                "Fees": 0.2,
+                "P/L": -0.12,
+                "Status": "\ud83d\udd34 LOSS",
+                "Time": "2026-08-25 21:03"
             }
         ],
         "AUDNZD=X": [
