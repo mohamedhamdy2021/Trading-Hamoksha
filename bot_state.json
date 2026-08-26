@@ -1,5 +1,5 @@
 {
-    "balance": 1467.198875305457,
+    "balance": 1466.9491871228352,
     "positions": {
         "EURUSD=X": "SELL",
         "GBPUSD=X": "SELL",
@@ -9,12 +9,12 @@
         "USDCAD=X": "SELL",
         "NZDUSD=X": "SELL",
         "GBPJPY=X": "BUY",
-        "EURJPY=X": "BUY",
+        "EURJPY=X": null,
         "EURGBP=X": null,
         "AUDNZD=X": "SELL",
         "EURCHF=X": "BUY",
         "GBPCHF=X": "BUY",
-        "CADJPY=X": "BUY",
+        "CADJPY=X": null,
         "GC=F": null
     },
     "entry_prices": {
@@ -26,12 +26,12 @@
         "USDCAD=X": 1.382699966430664,
         "NZDUSD=X": 0.5965163707733154,
         "GBPJPY=X": 217.2740020751953,
-        "EURJPY=X": 185.84100341796875,
+        "EURJPY=X": 0.0,
         "EURGBP=X": 0.0,
         "AUDNZD=X": 1.1984599828720093,
         "EURCHF=X": 0.937969982624054,
         "GBPCHF=X": 1.0856000185012817,
-        "CADJPY=X": 114.66699981689453,
+        "CADJPY=X": 0.0,
         "GC=F": 0.0
     },
     "history": {
@@ -1011,6 +1011,16 @@
                 "P/L": -0.17,
                 "Status": "\ud83d\udd34 LOSS",
                 "Time": "2026-08-24 18:37"
+            },
+            {
+                "Type": "BUY",
+                "Entry": 185.84100341796875,
+                "Exit": 185.61900329589844,
+                "Gross_PnL": -0.12,
+                "Fees": 0.2,
+                "P/L": -0.22,
+                "Status": "\ud83d\udd34 LOSS",
+                "Time": "2026-08-26 11:37"
             }
         ],
         "EURGBP=X": [
@@ -1691,6 +1701,16 @@
                 "P/L": -0.32,
                 "Status": "\ud83d\udd34 LOSS",
                 "Time": "2026-08-25 07:06"
+            },
+            {
+                "Type": "BUY",
+                "Entry": 114.66699981689453,
+                "Exit": 114.74700164794922,
+                "Gross_PnL": 0.07,
+                "Fees": 0.2,
+                "P/L": -0.03,
+                "Status": "\ud83d\udd34 LOSS",
+                "Time": "2026-08-26 11:37"
             }
         ],
         "GC=F": [
