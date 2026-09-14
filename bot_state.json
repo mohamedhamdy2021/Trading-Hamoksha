@@ -1,5 +1,5 @@
 {
-    "balance": 1461.4268891346212,
+    "balance": 1459.2296446519122,
     "positions": {
         "EURUSD=X": null,
         "GBPUSD=X": "BUY",
@@ -9,11 +9,11 @@
         "USDCAD=X": "BUY",
         "NZDUSD=X": "SELL",
         "GBPJPY=X": "BUY",
-        "EURJPY=X": "BUY",
+        "EURJPY=X": null,
         "EURGBP=X": "BUY",
         "AUDNZD=X": "SELL",
         "EURCHF=X": "BUY",
-        "GBPCHF=X": "SELL",
+        "GBPCHF=X": null,
         "CADJPY=X": "BUY",
         "GC=F": "BUY"
     },
@@ -26,11 +26,11 @@
         "USDCAD=X": 1.3860000371932983,
         "NZDUSD=X": 0.5965163707733154,
         "GBPJPY=X": 217.2740020751953,
-        "EURJPY=X": 181.1649932861328,
+        "EURJPY=X": 0.0,
         "EURGBP=X": 0.8576499819755554,
         "AUDNZD=X": 1.1984599828720093,
         "EURCHF=X": 0.937969982624054,
-        "GBPCHF=X": 1.0953500270843506,
+        "GBPCHF=X": 0.0,
         "CADJPY=X": 111.22200012207031,
         "GC=F": 4386.7001953125
     },
@@ -1081,6 +1081,16 @@
                 "P/L": -0.22,
                 "Status": "\ud83d\udd34 LOSS",
                 "Time": "2026-08-26 11:37"
+            },
+            {
+                "Type": "BUY",
+                "Entry": 181.1649932861328,
+                "Exit": 178.50100708007812,
+                "Gross_PnL": -1.47,
+                "Fees": 0.2,
+                "P/L": -1.57,
+                "Status": "\ud83d\udd34 LOSS",
+                "Time": "2026-09-14 10:09"
             }
         ],
         "EURGBP=X": [
@@ -1679,6 +1689,16 @@
                 "P/L": 0.61,
                 "Status": "\ud83d\udfe2 WIN",
                 "Time": "2026-09-03 15:04"
+            },
+            {
+                "Type": "SELL",
+                "Entry": 1.0953500270843506,
+                "Exit": 1.1011199951171875,
+                "Gross_PnL": -0.53,
+                "Fees": 0.2,
+                "P/L": -0.63,
+                "Status": "\ud83d\udd34 LOSS",
+                "Time": "2026-09-14 10:09"
             }
         ],
         "CADJPY=X": [
