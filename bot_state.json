@@ -1,5 +1,5 @@
 {
-    "balance": 1451.2879472969057,
+    "balance": 1452.1977411235202,
     "positions": {
         "EURUSD=X": null,
         "GBPUSD=X": null,
@@ -14,7 +14,7 @@
         "AUDNZD=X": "SELL",
         "EURCHF=X": "BUY",
         "GBPCHF=X": "BUY",
-        "CADJPY=X": "SELL",
+        "CADJPY=X": null,
         "GC=F": "SELL"
     },
     "entry_prices": {
@@ -31,7 +31,7 @@
         "AUDNZD=X": 1.1984599828720093,
         "EURCHF=X": 0.937969982624054,
         "GBPCHF=X": 1.0923800468444824,
-        "CADJPY=X": 112.99400329589844,
+        "CADJPY=X": 0.0,
         "GC=F": 4079.5
     },
     "history": {
@@ -1961,6 +1961,16 @@
                 "P/L": 1.13,
                 "Status": "\ud83d\udfe2 WIN",
                 "Time": "2026-10-21 22:44"
+            },
+            {
+                "Type": "SELL",
+                "Entry": 112.99400329589844,
+                "Exit": 111.85299682617188,
+                "Gross_PnL": 1.01,
+                "Fees": 0.2,
+                "P/L": 0.91,
+                "Status": "\ud83d\udfe2 WIN",
+                "Time": "2026-11-09 16:33"
             }
         ],
         "GC=F": [
